@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+</head>
+<body style="background-image: url(./road3.jfif); background-repeat: no-repeat; background-size: cover; align-content: center; margin: 10%;">
+    <div><marquee behavior="10s" direction="right">EVALUATION TABLE</marquee></div>
+    <form >
+
+        <input type="number" value="" id="rol" placeholder="rol" class="form-control p-3 m-3">
+        <input type="number" value="" id="col" placeholder="col" class="form-control m-3 p-3" >
+        
+
+    <select name="" id="myOption" onchange="eval()" class="form-control m-3 p-3">
+        <option value=""></option>
+        <option value="1">Multiplication</option>
+        <option value="2">Division</option>
+        <option value="3">Addition</option>
+        <option value="4">Substraction</option>
+        <option value="5">Modulus</option>
+    </select>
+</form>
+    <!-- <button onclick="multiplication()">multiplication</button> -->
+    <table id="myTable" border="1"style="color:yellow;"></table>
+
+
+    <script>
+        function eval() {
+            if(myOption.value ==1){
+                multiplication()
+            }else if (myOption.value ==2){
+                division()
+            }else if (myOption.value ==3){
+                addition()
+            }else if (myOption.value ==4){
+                substraction()
+            }else if (myOption.value ==5){
+                modulus()
+            }
+
+        function multiplication(){
+            var output = ""
+            var i = rol.value
+            var j = col.value
+
+            for (var a=1;a<=i;a++){
+                output +="<tr>"
+                for (var b=1;b<=j;b++){
+                    output +=`<td>${a} * ${b} = ${ a*b}</td>`
+                }
+                output +="</tr>"
+                
+            }
+            myTable.innerHTML = output
+                rol.value=""
+                col.value=""
+        }
+
+        function division(){
+            var output = ""
+            var i = rol.value
+            var j = col.value
+
+            for (var a=1;a<=i;a++){
+                output +="<tr>"
+                for (var b=1;b<=j;b++){
+                    output +=`<td>${a} / ${b} =${parseFloat(a/b).toFixed(2)}</td>`
+                }
+                output +="</tr>"
+                
+            }
+            myTable.innerHTML = output
+                rol.value=""
+                col.value=""
+        }
+
+        function addition(){
+            var output = ""
+            var i =Number (rol.value);
+            var j = Number (col.value);
+
+            for (var a=1;a<=i;a++){
+                output +="<tr>"
+                for (var b=1;b<=j;b++){
+                    output +=`<td>${a} + ${b} = ${ a+b}</td>`
+                }
+                output +="</tr>"
+                
+            }
+            myTable.innerHTML = output
+                rol.value=""
+                col.value=""
+        }
+
+        function substraction(){
+            var output = ""
+            var i = rol.value
+            var j = col.value
+
+            for (var a=1;a<=i;a++){
+                output +="<tr>"
+                for (var b=1;b<=j;b++){
+                    output +=`<td>${a} - ${b} = ${ a-b}</td>`
+                }
+                output +="</tr>"
+                
+            }
+            myTable.innerHTML = output
+                rol.value=""
+                col.value=""
+        }
+
+        function modulus(){
+            var output = ""
+            var i = rol.value
+            var j = col.value
+
+            for (var a=1;a<=i;a++){
+                output +="<tr>"
+                for (var b=1;b<=j;b++){
+                    output +=`<td>${a} % ${b} = ${ a%b}</td>`
+                }
+                output +="</tr>"
+                
+            }
+            myTable.innerHTML = output
+                rol.value=""
+                col.value=""
+        }
+    }
+
+    </script>
+</body>
+</html>
